@@ -6,9 +6,9 @@ async function talker(req, res) {
   try {
     const fileContent = await fs.readFile(fileName, 'utf-8');
     const parse = JSON.parse(fileContent);
-    res.status(200).json(parse);
+    return res.status(200).json(parse);
   } catch (error) {
-    res.status(400).json({ message: 'something went wrong' });
+    return res.status(400).json({ message: 'something went wrong' });
   }
 }
 

@@ -14,9 +14,9 @@ const talkerID = (req, res) => {
         .status(404)
         .json({ message: 'Pessoa palestrante não encontrada' });
     }
-    res.status(200).json(searchID);
+    return res.status(200).json(searchID);
   } catch (error) {
-    res.status(404).json({ message: 'something went wrong' });
+    return res.status(404).json({ message: 'something went wrong' });
   }
 };
 
