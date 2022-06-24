@@ -18,18 +18,12 @@ const isMailValid = (email) => {
 };
 
 const validation = (res, email, password) => {
-  if (!email) {
-    res.status(HTTP_FAIL).json(mailRequire);
-    return;
-  }
-  if (!isMailValid(email)) {
-    res.status(HTTP_FAIL).json(mailValid);
-    return;
-  }
-  if (!password) {
-    res.status(HTTP_FAIL).json(pswRequired);
-    return;
-  }
+  if (!email) return res.status(HTTP_FAIL).json(mailRequire);
+
+  if (!isMailValid(email)) return res.status(HTTP_FAIL).json(mailValid);
+
+  if (!password) return res.status(HTTP_FAIL).json(pswRequired);
+
   return res.status(HTTP_FAIL).json(pswValid);
 };
 
@@ -39,10 +33,10 @@ const Login = (req, res) => {
 
   try {
     if (isMailValid(email) && password && password.length >= pswLength) {
-      res.status(HTTP_OK_STATUS).json({ token });
+      return res.status(HTTP_OK_STATUS).json({ token });
     }
   } catch (error) {
-    res.status(HTTP_OK_FAIL).json(error404);
+    return res.status(HTTP_OK_FAIL).json(error404);
   }
 
   validation(res, email, password);
