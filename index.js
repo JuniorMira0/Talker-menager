@@ -6,6 +6,7 @@ const talkerID = require('./middleware/TalkerID');
 const Login = require('./middleware/Login');
 const postTalker = require('./middleware/PostTalker');
 const putTalkerID = require('./middleware/PutTalkerID');
+const deleteTalker = require('./middleware/DeleteTalker');
 const {
   tokenValidator,
   nameValidator,
@@ -24,6 +25,10 @@ const PORT = '3000';
 app
   .route('/talker/:id')
   .get(talkerID)
+  .delete(
+    tokenValidator,
+    deleteTalker,
+  )
   .put(
     tokenValidator,
     nameValidator,
