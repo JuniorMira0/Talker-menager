@@ -4,6 +4,15 @@ const bodyParser = require('body-parser');
 const talker = require('./middleware/Talker');
 const talkerID = require('./middleware/TalkerID');
 const Login = require('./middleware/Login');
+const postTalker = require('./middleware/PostTalker');
+const {
+  tokenValidator,
+  nameValidator,
+  ageValidator,
+  talkValidator,
+  watchedAtValidator,
+  rateValidator,
+} = require('./controller/Validations');
 
 const app = express();
 app.use(bodyParser.json());
@@ -13,7 +22,18 @@ const PORT = '3000';
 
 app.get('/talker/:id', talkerID);
 
-app.get('/talker', talker);
+app
+  .route('/talker')
+  .get(talker)
+  .post(
+    tokenValidator,
+    nameValidator,
+    ageValidator,
+    talkValidator,
+    watchedAtValidator,
+    rateValidator,
+    postTalker,
+  );
 
 app.post('/login', Login);
 
