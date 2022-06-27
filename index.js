@@ -5,6 +5,7 @@ const talker = require('./middleware/Talker');
 const talkerID = require('./middleware/TalkerID');
 const Login = require('./middleware/Login');
 const postTalker = require('./middleware/PostTalker');
+const putTalkerID = require('./middleware/PutTalkerID');
 const {
   tokenValidator,
   nameValidator,
@@ -20,7 +21,18 @@ app.use(bodyParser.json());
 const HTTP_OK_STATUS = 200;
 const PORT = '3000';
 
-app.get('/talker/:id', talkerID);
+app
+  .route('/talker/:id')
+  .get(talkerID)
+  .put(
+    tokenValidator,
+    nameValidator,
+    ageValidator,
+    talkValidator,
+    watchedAtValidator,
+    rateValidator,
+    putTalkerID,
+);
 
 app
   .route('/talker')
