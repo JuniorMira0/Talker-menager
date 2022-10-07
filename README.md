@@ -19,7 +19,7 @@ Foram criados alguns MiddleWares de validação para tratar requisições invál
 
 - Criar endpoints que recebem informações nos parâmetros e queries do endpoint;
 
--- Utilizar um software (neste caso, o Insomnia) para realizar as requisições.
+- Utilizar um software (neste caso, o Insomnia) para realizar as requisições.
 
 ---
 ## 1 - Crie o endpoint GET `/talker`
