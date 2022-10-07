@@ -9,6 +9,19 @@ Este foi o primeiro projeto o qual utilizamos o Express para criar APIs. Por hor
 Foram criados alguns MiddleWares de validação para tratar requisições inválidas. Eles podem ser encontrados no arquivo validation.js.
 
 ---
+### Habilidades
+
+- Desenvolver uma API com o NodeJs utilizando o Express;
+
+- Criar MiddleWares de validação de dados para as requisições;
+
+- Criar endpoints que recebem informações no corpo de requisição;
+
+- Criar endpoints que recebem informações nos parâmetros e queries do endpoint;
+
+-- Utilizar um software (neste caso, o Insomnia) para realizar as requisições.
+
+---
 ## 1 - Crie o endpoint GET `/talker`
 
 <details>
